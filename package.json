@@ -1,0 +1,20 @@
+{
+  "name": "typescript_football_stats",
+  "version": "1.0.0",
+  "description": "```\r tsc --init\r npm install nodemon concurrently\r npm init - y\r ```",
+  "main": "index.js",
+  "dependencies": {
+    "@types/node": "^14.11.1",
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
