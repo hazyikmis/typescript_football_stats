@@ -1,5 +1,6 @@
 //import fs from 'fs';
-import { CsvFileReader } from './CsvFileReader';
+//import { CsvFileReader } from './CsvFileReader';  //no longer usable directly, because its converted to abstract class
+import { MatchReader } from './MatchReader';
 import { MatchResult } from './MatchResult';
 
 //const matches = fs.readFileSync('football.csv', {encoding: 'utf-8'});
@@ -10,7 +11,8 @@ import { MatchResult } from './MatchResult';
 //   .map((row: string): string[] => {
 //     return row.split(',');
 //  });
-const reader = new CsvFileReader('football.csv');
+//const reader = new CsvFileReader('football.csv');
+const reader = new MatchReader('football.csv');
 reader.read(); //open the football.csv file reads all data ad loads it to "data" property of reader
 const matches = reader.data;
 

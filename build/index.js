@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 //import fs from 'fs';
-var CsvFileReader_1 = require("./CsvFileReader");
+//import { CsvFileReader } from './CsvFileReader';  //no longer usable directly, because its converted to abstract class
+var MatchReader_1 = require("./MatchReader");
 var MatchResult_1 = require("./MatchResult");
 //const matches = fs.readFileSync('football.csv', {encoding: 'utf-8'});
 //const matches = fs
@@ -11,7 +12,8 @@ var MatchResult_1 = require("./MatchResult");
 //   .map((row: string): string[] => {
 //     return row.split(',');
 //  });
-var reader = new CsvFileReader_1.CsvFileReader('football.csv');
+//const reader = new CsvFileReader('football.csv');
+var reader = new MatchReader_1.MatchReader('football.csv');
 reader.read(); //open the football.csv file reads all data ad loads it to "data" property of reader
 var matches = reader.data;
 console.log(matches[0]);

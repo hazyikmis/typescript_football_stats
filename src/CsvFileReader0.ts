@@ -1,22 +1,20 @@
 import fs from 'fs';
 //import { dateStrToDate } from './utils';
-//import { MatchResult } from './MatchResult';
+import { MatchResult } from './MatchResult';
 
 //tuple structure:
-//type MatchData = [Date, string, string, number, number, MatchResult, string];
+type MatchData = [Date, string, string, number, number, MatchResult, string];
 
 //WE WANT THAT CsvFileReader CLASS SHOULD BE REUSABLE WITH ANY KIND OF DATA
 //BUT IT CURRENTLY DEPENDS ON "type MatchData"
 //AND MatchData TYPE CUSTOMIZED WITH ONLY WORK WITH 'football.csv'
-export abstract class CsvFileReader<T> {
+export abstract class CsvFileReader {
   //data: string[][] = [];
-  //data: MatchData[] = [];
-  data: T[] = [];
+  data: MatchData[] = [];
   //filename: string = 'x.csv'; //rather than hard-coding like that its better to accept as paramter
   constructor(public filename: string) {}
 
-  //abstract mapRow(row: string[]): MatchData;
-  abstract mapRow(row: string[]): T;
+  abstract mapRow(row: string[]): MatchData;
 
   read(): void {
     this.data = fs

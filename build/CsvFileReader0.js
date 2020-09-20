@@ -5,10 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CsvFileReader = void 0;
 var fs_1 = __importDefault(require("fs"));
-//import { dateStrToDate } from './utils';
-//import { MatchResult } from './MatchResult';
-//tuple structure:
-//type MatchData = [Date, string, string, number, number, MatchResult, string];
 //WE WANT THAT CsvFileReader CLASS SHOULD BE REUSABLE WITH ANY KIND OF DATA
 //BUT IT CURRENTLY DEPENDS ON "type MatchData"
 //AND MatchData TYPE CUSTOMIZED WITH ONLY WORK WITH 'football.csv'
@@ -17,7 +13,6 @@ var CsvFileReader = /** @class */ (function () {
     function CsvFileReader(filename) {
         this.filename = filename;
         //data: string[][] = [];
-        //data: MatchData[] = [];
         this.data = [];
     }
     CsvFileReader.prototype.read = function () {
