@@ -1,17 +1,13 @@
-//import fs from 'fs';
-import { CsvFileReader } from './CsvFileReader';
+import fs from 'fs';
 
 //const matches = fs.readFileSync('football.csv', {encoding: 'utf-8'});
-//const matches = fs
-//   .readFileSync('football.csv', { encoding: 'utf-8' })
-//   .split('\n')
-//   //.map((row) => {
-//   .map((row: string): string[] => {
-//     return row.split(',');
-//  });
-const reader = new CsvFileReader('football.csv');
-reader.read(); //open the football.csv file reads all data ad loads it to "data" property of reader
-const matches = reader.data;
+const matches = fs
+  .readFileSync('football.csv', { encoding: 'utf-8' })
+  .split('\n')
+  //.map((row) => {
+  .map((row: string): string[] => {
+    return row.split(',');
+  });
 
 // const homeWin = 'H';
 // const awayWin = 'A';
