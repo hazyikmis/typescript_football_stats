@@ -4,7 +4,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //import { CsvFileReader } from './CsvFileReader';  //no longer usable directly, because its converted to abstract class
 var MatchReader_1 = require("./MatchReader");
 var MatchResult_1 = require("./MatchResult");
-var CsvFileReader_1 = require("./CsvFileReader"); // required again, in alternative method!
 //const matches = fs.readFileSync('football.csv', {encoding: 'utf-8'});
 //const matches = fs
 //   .readFileSync('football.csv', { encoding: 'utf-8' })
@@ -14,10 +13,10 @@ var CsvFileReader_1 = require("./CsvFileReader"); // required again, in alternat
 //     return row.split(',');
 //  });
 //const reader = new CsvFileReader('football.csv');
-// const reader = new MatchReader('football.csv');
-// reader.read(); //open the football.csv file reads all data ad loads it to "data" property of reader
-// const matches = reader.data;
-// console.log(matches[0]);
+var reader = new MatchReader_1.MatchReader('football.csv');
+reader.read(); //open the football.csv file reads all data ad loads it to "data" property of reader
+var matches = reader.data;
+console.log(matches[0]);
 //const dateOfFirstMatch = matches[0][0];
 // const homeWin = 'H';
 // const awayWin = 'A';
@@ -39,12 +38,6 @@ const MatchResult = {
 // }
 //possible to define like below
 //enum MatchResult {HomeWin, AwayWin, Draw}
-//create an object that satisfies the "DataReader" interface
-var csvFileReader = new CsvFileReader_1.CsvFileReader('football.csv');
-//create an instance of MatchReader and pass in something satisfying the "DataReader" interface
-var matchReader = new MatchReader_1.MatchReader(csvFileReader);
-matchReader.load();
-var matches = matchReader.matches;
 var manUnitedWins = 0;
 for (var _i = 0, matches_1 = matches; _i < matches_1.length; _i++) {
     var match = matches_1[_i];
