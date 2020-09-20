@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 //import fs from 'fs';
 var CsvFileReader_1 = require("./CsvFileReader");
+var MatchResult_1 = require("./MatchResult");
 //const matches = fs.readFileSync('football.csv', {encoding: 'utf-8'});
 //const matches = fs
 //   .readFileSync('football.csv', { encoding: 'utf-8' })
@@ -13,6 +14,8 @@ var CsvFileReader_1 = require("./CsvFileReader");
 var reader = new CsvFileReader_1.CsvFileReader('football.csv');
 reader.read(); //open the football.csv file reads all data ad loads it to "data" property of reader
 var matches = reader.data;
+console.log(matches[0]);
+//const dateOfFirstMatch = matches[0][0];
 // const homeWin = 'H';
 // const awayWin = 'A';
 // const draw = 'D';
@@ -25,21 +28,21 @@ const MatchResult = {
 };
 */
 //Best approach: using ENUM types (enum: enumeration)
-var MatchResult;
-(function (MatchResult) {
-    MatchResult["HomeWin"] = "H";
-    MatchResult["AwayWin"] = "A";
-    MatchResult["Draw"] = "D";
-})(MatchResult || (MatchResult = {}));
+//moved to MatchResult.ts
+// enum MatchResult {
+//   HomeWin = 'H',
+//   AwayWin = 'A',
+//   Draw = 'D',
+// }
 //possible to define like below
 //enum MatchResult {HomeWin, AwayWin, Draw}
 var manUnitedWins = 0;
 for (var _i = 0, matches_1 = matches; _i < matches_1.length; _i++) {
     var match = matches_1[_i];
-    if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
+    if (match[1] === 'Man United' && match[5] === MatchResult_1.MatchResult.HomeWin) {
         manUnitedWins++;
     }
-    else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
+    else if (match[2] === 'Man United' && match[5] === MatchResult_1.MatchResult.AwayWin) {
         manUnitedWins++;
     }
 }

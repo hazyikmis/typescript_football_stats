@@ -1,5 +1,6 @@
 //import fs from 'fs';
 import { CsvFileReader } from './CsvFileReader';
+import { MatchResult } from './MatchResult';
 
 //const matches = fs.readFileSync('football.csv', {encoding: 'utf-8'});
 //const matches = fs
@@ -12,6 +13,10 @@ import { CsvFileReader } from './CsvFileReader';
 const reader = new CsvFileReader('football.csv');
 reader.read(); //open the football.csv file reads all data ad loads it to "data" property of reader
 const matches = reader.data;
+
+console.log(matches[0]);
+
+//const dateOfFirstMatch = matches[0][0];
 
 // const homeWin = 'H';
 // const awayWin = 'A';
@@ -26,11 +31,12 @@ const MatchResult = {
 */
 
 //Best approach: using ENUM types (enum: enumeration)
-enum MatchResult {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D',
-}
+//moved to MatchResult.ts
+// enum MatchResult {
+//   HomeWin = 'H',
+//   AwayWin = 'A',
+//   Draw = 'D',
+// }
 
 //possible to define like below
 //enum MatchResult {HomeWin, AwayWin, Draw}
