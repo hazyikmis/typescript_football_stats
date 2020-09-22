@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "start:build": "tsc -w",
-    "start:run": "nodemon build/bigRefactoring-composition/index.js",
+    "start:run": "nodemon build/index.js",
     "start": "concurrently npm:start:*"
   },
   "keywords": [],
